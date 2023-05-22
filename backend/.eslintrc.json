@@ -5,15 +5,13 @@
         "node": true
     },
     "extends": "eslint:recommended",
-    "overrides": [
-    ],
     "parserOptions": {
         "ecmaVersion": "latest"
     },
     "rules": {
         "indent": [
             "error",
-            4
+            2
         ],
         "linebreak-style": [
             "error",

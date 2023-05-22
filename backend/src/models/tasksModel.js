@@ -1,12 +1,13 @@
 const connection = require('./connection');
 
-
-const getAll = async () =>{
-    const tasks = await connection.execute('SELECT * FROM tasks');
-    return tasks;
-}; 
-
-
+const getAllCriminals = async ()=> {
+    const query = 'SELECT * FROM criminal_data';
+    const [rows] = await this.connection.execute(query);
+    return rows;
+  }
+  
 module.exports = {
-    getAll
+    getAllCriminals
 };
+
+
