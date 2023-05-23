@@ -62,6 +62,7 @@ router.get('/fetch-and-save-notices', async( req, res) => {
 });
 
 router.get('/notices', async (req, res) => { 
+  console.log('opa')
   const model = new redNoticesModel(connection);
   const controller = new redNoticeController(model)
 

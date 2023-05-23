@@ -5,6 +5,11 @@ const swaggerui = require('swagger-ui-express')
 
 const app = express();
 
+app.use(express.static(__dirname + '/public'))
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + "/public/index.html")
+})
+
 const options = {
     definition: {
         openapi: "3.0.0",
@@ -24,7 +29,7 @@ const options = {
             },
         ],
     },
-    apis: ['./router'],
+    apis: [__dirname + '/router.js'],
 };
 
 const specs = swaggerjsdoc(options)
