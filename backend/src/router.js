@@ -58,10 +58,21 @@ router.get('/fetch-and-save-notices', async( req, res) => {
   }catch (error) {
     console.error('Erro ao salvar os dados:', error);
     res.status(500).send('Erro ao salvar os dados.');
-  } finally {
-    await connection.end();
+  } 
+});
+
+router.get('/notices', async (req, res) => { 
+  const model = new redNoticesModel(connection);
+  const controller = new redNoticeController(model)
+
+  try {
+    await controller.getAllRedNotices(req, res); 
+  } catch (error) { 
+    console.log('Erro ao buscar noticias', error);
+    res.status(500).json({error : 'Erro ao buscar criminosos'});
   }
 });
+
   
 router.get('/fetch-and-save', async (req, res) => {
   
@@ -74,8 +85,6 @@ router.get('/fetch-and-save', async (req, res) => {
   } catch (error) {
     console.error('Erro ao salvar os dados:', error);
     res.status(500).send('Erro ao salvar os dados.');
-  } finally {
-    await connection.end();
   }
 });
 
@@ -88,23 +97,9 @@ router.get('/criminals', async (req, res) => {
   } catch (error) {
     console.error('Erro ao buscar criminosos:', error);
     res.status(500).json({ error: 'Erro ao buscar criminosos' });
-  } finally {
-    await connection.end();
   }
 });
 
-router.get('/notices', async (req, res) => { 
-  const model = new redNoticesModel(connection);
-  const controller = new redNoticeController(model)
 
-  try {
-    await controller.getAllRedNotices(req, res); 
-  } catch (error) { 
-    console.log('Erro ao buscar noticias', error);
-    res.status(500).json({error : 'Erro ao buscar criminosos'});
-  } finally { 
-    await connection.end();
-  }
-});
 
 module.exports = router;
