@@ -20,6 +20,42 @@
  *         _links:
  *           type: string
  *
+ * 
+ * @swagger
+ * components:
+ *   schemas:
+ *     Criminal:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: int
+ *         formattedDatesOfBirthUsed:
+ *           type: string
+ *         race_raw:
+ *           type: string
+ *         formattedOccupations:
+ *           type: string
+ *         place_of_birth:
+ *           type: string
+ *         title:
+ *           type: string
+ *         hair:
+ *           type: string
+ *         sex:
+ *           type: string
+ *         nationality:
+ *           type: string
+ *         reward:
+ *           type: string
+ *         caution:
+ *           type: string
+ *         path:
+ *           type: string
+ *         post_classification: 
+ *           type: string
+ */
+
+/**!SECTION
  * @swagger
  * tags:
  *   name: FBI & Interpool
